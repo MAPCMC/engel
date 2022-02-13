@@ -1,0 +1,41 @@
+backend:
+  name: git-gateway
+  branch: main
+
+publish_mode: editorial_workflow
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+collections:
+  - label: "Pages"
+    name: "pages"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "site/content/home.yml"
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Intro, name: intro, widget: markdown}
+          - {label: Photo, name: photo, widget: image}
+          - label: Contact
+            name: contact
+            widget: list
+            fields:
+              - {label: Description, name: description, widget: string}
+              - {label: Handle, name: handle, widget: string}
+              - {label: Link, name: link, widget: string}
+      - label: "About Page"
+        name: "about"
+        file: "site/content/about.yml"
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Intro, name: intro, widget: markdown}
+          - {label: Photo, name: photo, widget: image}
+  - label: "Photos"
+    name: "photos"
+    folder: "_photos/"
+    create: true
+    fields:
+      - {label: Title, name: title, widget: string}
+      - {label: Intro, name: intro, widget: markdown}
+      - {label: Photo, name: photo, widget: image}
